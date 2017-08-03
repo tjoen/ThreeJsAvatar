@@ -1,3 +1,7 @@
-A Pen created at CodePen.io. You can find this one at http://codepen.io/wpdildine/pen/rVLEyQ.
+Custom Avatar Model imported with bones that can be manipulated with GUI controls in a three.js scene
 
- The model and skeleton was created in blender and scene was created in three.js.  Have fun with  the rigging!
+The model and skeleton was created in blender and scene was created in three.js. Just some fun with rigging!
+
+Creators:
+Arpit Mathur
+EJ Mann
