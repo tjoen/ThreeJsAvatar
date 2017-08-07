@@ -15,7 +15,7 @@ $(function(){
 		camera =  new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, .1, 500);
 		renderer = new THREE.WebGLRenderer({antialias:true});
 
-		renderer.setClearColor(0x333300);
+		renderer.setClearColor(0x000000);
 		renderer.setSize(window.innerWidth, window.innerHeight);
 		renderer.shadowMapEnabled= true;
 		renderer.shadowMapSoft = true;
@@ -91,7 +91,7 @@ $(function(){
 
         /*add loader call add model function*/
         loader = new THREE.JSONLoader();
-        loader.load( 'https://ucarecdn.com/e980bad3-2dc4-4ad0-81fc-73726c5e3b5a/', addModel );
+        loader.load( 'https://ucarecdn.com/b229522f-bde3-49d4-bd0f-5b6313bb593f/', addModel );
 
 
 		/*adds controls to scene*/
@@ -167,14 +167,14 @@ $(function(){
     var scaleVal = 3;
     function addModel( geometry,  materials ){
         //Added for Arpit's model
-        materials = [
-            /*new THREE.MeshBasicMaterial({color:0x33AA55, transparent:true, opacity:1, side: THREE.DoubleSide}),
+        /*materials = [
+            new THREE.MeshBasicMaterial({color:0x33AA55, transparent:true, opacity:1, side: THREE.DoubleSide}),
             new THREE.MeshBasicMaterial({color:0x55CC00, transparent:true, opacity:1, side: THREE.DoubleSide}),
             new THREE.MeshBasicMaterial({color:0x000000, transparent:true, opacity:1, side: THREE.DoubleSide}),
             new THREE.MeshBasicMaterial({color:0xFF0000, transparent:true, opacity:1, side: THREE.DoubleSide}),
-            new THREE.MeshBasicMaterial({color:0xFF0000, transparent:true, opacity:1, side: THREE.DoubleSide}),*/
+            new THREE.MeshBasicMaterial({color:0xFF0000, transparent:true, opacity:1, side: THREE.DoubleSide}),
             new THREE.MeshBasicMaterial({color:0x5555AA, transparent:true, opacity:1, side: THREE.DoubleSide}),
-        ];
+        ];*/
         for (var i = 0;i < 800; i++){
             materials[0].skinning = true;
 
