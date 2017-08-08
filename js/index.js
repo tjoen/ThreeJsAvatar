@@ -31,15 +31,17 @@ $(function(){
 
 		/*datGUI controls object*/
 		guiControls = new function(){
-            this.Bone_0 = 0.0;
-            this.Bone_1 = 0.0;
-            this.Bone_2 = 0.0;
-            this.Bone_3 = 0.0;
+            this.Stomach = 0.0;
+            this.Chest = 0.0;
+            this.Head = 0.0;
+            this.UpperArm_L = 0.0;
 
             //Added for Arpit's model
-            this.Bone_4 = 0.0;
-            this.Bone_5 = 0.0;
-            this.Bone_6 = 0.0;
+            this.LowerArm_L = 0.0;
+            this.Hand_L = 0.0;
+            this.UpperArm_R = 0.0;
+            this.LowerArm_R = 0.0;
+            this.Hand_R = 0.0;
 
 			this.rotationX  = 0.0;
 			this.rotationY  = 0.0;
@@ -91,8 +93,8 @@ $(function(){
 
         /*add loader call add model function*/
         loader = new THREE.JSONLoader();
-        loader.load( 'https://ucarecdn.com/b229522f-bde3-49d4-bd0f-5b6313bb593f/', addModel );
-
+        //loader.load( 'https://ucarecdn.com/b229522f-bde3-49d4-bd0f-5b6313bb593f/', addModel );
+        loader.load('https://ucarecdn.com/89c76137-476f-49a5-8d82-a7ab3c88a386/', addModel);
 
 		/*adds controls to scene*/
 		datGUI = new dat.GUI();
@@ -101,15 +103,17 @@ $(function(){
         datGUI.add(guiControls, "scene");
         var cfolder = datGUI.addFolder('Controls');
 
-		cfolder.add(guiControls, 'Bone_0',-3.14, 3.14);
-		cfolder.add(guiControls, 'Bone_1',-3.14, 3.14);
-		cfolder.add(guiControls, 'Bone_2',-3.14, 3.14);
-		cfolder.add(guiControls, 'Bone_3',-3.14, 3.14);
+		cfolder.add(guiControls, 'Stomach',-3.14, 3.14);
+		cfolder.add(guiControls, 'Chest',-3.14, 3.14);
+		cfolder.add(guiControls, 'Head',-3.14, 3.14);
+		cfolder.add(guiControls, 'UpperArm_L',-3.14, 3.14);
 
         // Added for Arpit's avatar model
-        cfolder.add(guiControls, 'Bone_4',-3.14, 3.14);
-        cfolder.add(guiControls, 'Bone_5',-3.14, 3.14);
-        cfolder.add(guiControls, 'Bone_6',-3.14, 3.14);
+        cfolder.add(guiControls, 'LowerArm_L',-3.14, 3.14);
+        cfolder.add(guiControls, 'Hand_L',-3.14, 3.14);
+        cfolder.add(guiControls, 'UpperArm_R',-3.14, 3.14);
+        cfolder.add(guiControls, 'LowerArm_R',-3.14, 3.14);
+        cfolder.add(guiControls, 'Hand_R',-3.14, 3.14);
 
 
 		var lfolder = datGUI.addFolder('Lights');
@@ -201,10 +205,43 @@ $(function(){
 
         scene.traverse(function(child){
             if (child instanceof THREE.SkinnedMesh){
-
                 child.rotation.y += .01;
 
-                child.skeleton.bones[0].rotation.z = guiControls.Bone_0;
+                child.skeleton.bones.forEach(function(item){
+                    switch (item.name) {
+                        case "Stomach":
+                            item.rotation.z = guiControls.Stomach;
+                            break;
+                        case "Chest":
+                            item.rotation.z = guiControls.Chest;
+                            break;
+                        case "Head":
+                            item.rotation.z = guiControls.Head;
+                            break;
+                        case "UpperArm.L":
+                            item.rotation.z = guiControls.UpperArm_L;
+                            break;
+                        case "LowerArm.L":
+                            item.rotation.z = guiControls.LowerArm_L;
+                            break;
+                        case "Hand.L":
+                            item.rotation.z = guiControls.Hand_L;
+                            break;
+                        case "UpperArm.R":
+                            item.rotation.z = guiControls.UpperArm_R;
+                            break;
+                        case "LowerArm.R":
+                            item.rotation.z = guiControls.LowerArm_R;
+                            break;
+                        case "Hand.R":
+                            item.rotation.z = guiControls.Hand_R;
+                            break;
+                        default:
+                            break;
+                    }
+                });
+
+                /*child.skeleton.bones[0].rotation.z = guiControls.Bone_0;
                 child.skeleton.bones[1].rotation.z = guiControls.Bone_1;
                 child.skeleton.bones[2].rotation.z = guiControls.Bone_2;
                 child.skeleton.bones[3].rotation.z = guiControls.Bone_3;
@@ -212,6 +249,8 @@ $(function(){
                 child.skeleton.bones[4].rotation.z = guiControls.Bone_4;
                 child.skeleton.bones[5].rotation.z = guiControls.Bone_5;
                 child.skeleton.bones[6].rotation.z = guiControls.Bone_6;
+                child.skeleton.bones[7].rotation.z = guiControls.Bone_7;
+                child.skeleton.bones[8].rotation.z = guiControls.Bone_8;*/
             }
             else if  (child instanceof THREE.SkeletonHelper){
                 child.update();
