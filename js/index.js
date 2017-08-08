@@ -94,7 +94,7 @@ $(function(){
         /*add loader call add model function*/
         loader = new THREE.JSONLoader();
         //loader.load( 'https://ucarecdn.com/b229522f-bde3-49d4-bd0f-5b6313bb593f/', addModel );
-        loader.load('https://ucarecdn.com/89c76137-476f-49a5-8d82-a7ab3c88a386/', addModel);
+        loader.load('https://ucarecdn.com/9e0bcdac-01d8-476f-a459-00ea7f2ff9c8/', addModel);
 
 		/*adds controls to scene*/
 		datGUI = new dat.GUI();
@@ -191,8 +191,8 @@ $(function(){
             set[i].receiveShadow = true;
 
             scene.add(set[i]);
-            //helpset[i] = new THREE.SkeletonHelper(set[i]);
-            //scene.add(helpset[i]);
+            helpset[i] = new THREE.SkeletonHelper(set[i]);
+            scene.add(helpset[i]);
 
         }
 
@@ -228,13 +228,13 @@ $(function(){
                             item.rotation.z = guiControls.Hand_L;
                             break;
                         case "UpperArm.R":
-                            item.rotation.z = guiControls.UpperArm_R;
+                            item.rotation.y = guiControls.UpperArm_R;
                             break;
                         case "LowerArm.R":
-                            item.rotation.z = guiControls.LowerArm_R;
+                            item.rotation.y = guiControls.LowerArm_R;
                             break;
                         case "Hand.R":
-                            item.rotation.z = guiControls.Hand_R;
+                            item.rotation.y = guiControls.Hand_R;
                             break;
                         default:
                             break;
