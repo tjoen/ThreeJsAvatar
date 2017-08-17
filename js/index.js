@@ -115,7 +115,6 @@ $(function(){
         cfolder.add(guiControls, 'LowerArm_R',-3.14, 3.14);
         cfolder.add(guiControls, 'Hand_R',-3.14, 3.14);
 
-
 		var lfolder = datGUI.addFolder('Lights');
 		lfolder.add(guiControls, 'lightX',-60,400);
 		lfolder.add(guiControls, 'lightY',0,400);
@@ -157,7 +156,9 @@ $(function(){
 			spotLight.shadowDarkness = value;
 			spotLight.shadowCamera.updateProjectionMatrix();
 		});
+
 		datGUI.close();
+
 		$("#webGL-container").append(renderer.domElement);
 		/*stats*/
 		stats = new Stats();
@@ -166,9 +167,11 @@ $(function(){
 		stats.domElement.style.top = '0px';
 		$("#webGL-container").append( stats.domElement );
 	}
+
     var set = [];
     var helpset = [];
     var scaleVal = 3;
+
     function addModel( geometry,  materials ){
         //Added for Arpit's model
         /*materials = [
@@ -195,7 +198,6 @@ $(function(){
             scene.add(helpset[i]);
 
         }
-
     }
 
 	function render() {
@@ -256,7 +258,6 @@ $(function(){
                 child.update();
             }
         });
-
 	}
 
 	function animate(){
