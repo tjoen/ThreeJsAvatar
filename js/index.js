@@ -22,7 +22,7 @@ $(function(){
 
 		/*add controls*/
 		controls = new THREE.OrbitControls( camera, renderer.domElement );
-		controls.addEventListener( 'change', render );
+		controls.addEventListener('change', render );
 
 		camera.position.x = 200;
 		camera.position.y = 200;
